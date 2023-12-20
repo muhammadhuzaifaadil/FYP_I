@@ -1,0 +1,14 @@
+﻿CREATE PROCEDURE DeleteScrapedData
+AS
+BEGIN
+    DELETE FROM UniversityCalendar WHERE UId IN (1, 5);
+    DELETE FROM UniversityDepartment WHERE UId IN (1, 5);
+    DELETE FROM UniversityDocument WHERE UId IN (1, 5);
+	DELETE FROM UniversityFee WHERE UId IN (1, 5);
+    DBCC CHECKIDENT ('UniversityCalendar', RESEED, 0);
+    DBCC CHECKIDENT ('UniversityDepartment', RESEED, 0);
+    DBCC CHECKIDENT ('UniversityDocument', RESEED, 0);
+    DBCC CHECKIDENT ('UniversityFee', RESEED, 0);
+END
+
+Then Add a new job to execute this procedure daily/monthly (up to you)
