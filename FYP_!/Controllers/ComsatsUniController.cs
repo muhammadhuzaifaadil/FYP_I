@@ -4,7 +4,7 @@ using Service.IService;
 
 namespace FYP__.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Comsats")]
     [ApiController]
     public class ComsatsUniController : ControllerBase
     {
@@ -33,7 +33,7 @@ namespace FYP__.Controllers
         [HttpGet("ComsatsDocuments")]
         public IActionResult GetUniversityDocuments()
         {
-            return Ok(_service.GetUniversityDocuments);
+            return Ok(_service.GetUniversityDocuments());
         }
     }
 }

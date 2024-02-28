@@ -139,7 +139,43 @@ namespace Service.Service
         }
         public List<UniversityDocuments> GetUniversityDocuments()
         {
-            throw new NotImplementedException();
+            var UniversityDocuments = _context.UniversityDocument.Where(x=>x.UId==5).ToList();
+            //importantdocuments
+            if (UniversityDocuments.Count == 0)
+            {
+                var web = new HtmlWeb();
+                var htmlDoc = web.Load("https://www.bahria.edu.pk/index.php/documents-required-ug/");
+                var nodeElement2 = htmlDoc.DocumentNode.SelectNodes("//div[@class='description']");
+
+                if (nodeElement2 != null)
+                {
+                    foreach (var node in nodeElement2)
+                    {
+                        var ulNode = node.SelectSingleNode(".//ul");
+                        if (ulNode != null)
+                        {
+                            var liNodes = ulNode.SelectNodes(".//li");
+                            if (liNodes != null)
+                            {
+                                foreach (var liNode in liNodes)
+                                {
+                                    var liText = liNode.InnerText.Trim();
+                                    var documents = new UniversityDocuments
+                                    {
+                                        DocumentRequirement = liText,
+                                        UId=5
+                                    };
+                                    UniversityDocuments.Add(documents);
+                                }
+                            }
+                        }
+                    }
+                    // Save the scraped data to the database
+                    _context.UniversityDocument.AddRange(UniversityDocuments);
+                    _context.SaveChanges();
+                }
+            }
+            return UniversityDocuments;
         }
 
         public List<UniversityFee> GetUniversityFee()

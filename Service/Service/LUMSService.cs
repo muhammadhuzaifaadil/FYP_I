@@ -124,11 +124,98 @@ namespace Service.Service
             return UniversityDepartments;
         }
 
+        //public List<UniversityDocuments> GetUniversityDocuments()
+        //{
+        //    var UniversityDocuments = _context.UniversityDocument.Where(x => x.UId == 4).ToList();
+        //    var attestedText = "Attested/Certified Copies of Complete Academic Transcripts and Certificates of:";
+        //    if (UniversityDocuments.Count == 0)
+        //    {
+        //        var web = new HtmlWeb();
+        //        var htmlDoc = web.Load("https://admission.lums.edu.pk/checklist-admissions");
+        //        var nodeElement = htmlDoc.DocumentNode.SelectSingleNode("//div[@class='tab-pane fade in active']");
+        //        if(nodeElement != null)
+        //        {
+        //            var ulElements = nodeElement.SelectNodes(".//ul[position() <= 4]");
+        //            if (ulElements != null)
+        //            {
+
+        //                foreach (var ulElement in ulElements)
+        //                {
+        //                    var liElements1 = ulElement.SelectNodes(".//li");
+        //                    if (liElements1 != null)
+        //                    {
+        //                        for (int i = 1; i < liElements1.Count; i++) // Start from index 1 to skip the first element
+        //                        {
+        //                            var liElement = liElements1[i];
+        //                            var liElementText = liElement.InnerText.Trim();
+
+
+
+        //                            var UniversityDocument = new UniversityDocuments
+        //                            {
+        //                                DocumentRequirement = liElementText,
+        //                                UId = 4
+        //                            };
+        //                            UniversityDocuments.Add(UniversityDocument);
+
+
+        //                        }
+        //                    }
+
+        //                }
+        //            }
+                    
+        //        }
+        //        _unitOfWork.UniversityDocumentRepository.AddRange(UniversityDocuments);
+        //        _unitOfWork.UniversityDocumentRepository.SaveChanges();
+        //    }
+        //    return UniversityDocuments;
+        //}
         public List<UniversityDocuments> GetUniversityDocuments()
         {
-            throw new NotImplementedException();
-        }
+            var UniversityDocuments = _context.UniversityDocument.Where(x => x.UId == 4).ToList();
+            var attestedText = "Attested/Certified Copies of Complete Academic Transcripts and Certificates of:";
+            if (UniversityDocuments.Count == 0)
+            {
+                var web = new HtmlWeb();
+                var htmlDoc = web.Load("https://admission.lums.edu.pk/checklist-admissions");
+                var nodeElement = htmlDoc.DocumentNode.SelectSingleNode("//div[@class='tab-pane fade in active']");
+                if (nodeElement != null)
+                {
+                    var ulElements = nodeElement.SelectNodes(".//ul[position() <= 4]");
+                    if (ulElements != null)
+                    {
+                        foreach (var ulElement in ulElements)
+                        {
+                            var liElements1 = ulElement.SelectNodes(".//li");
+                            if (liElements1 != null)
+                            {
+                                for (int i = 0; i < liElements1.Count; i++)
+                                {
+                                    if (ulElement == ulElements[0] && i == 0) // Skip the first liElement of the first ulElement
+                                        continue;
 
+                                    var liElement = liElements1[i];
+                                    var liElementText = liElement.InnerText.Trim();
+
+                                    var UniversityDocument = new UniversityDocuments
+                                    {
+                                        DocumentRequirement = liElementText,
+                                        UId = 4
+                                    };
+                                    UniversityDocuments.Add(UniversityDocument);
+                                }
+                            }
+                        }
+                    }
+                }
+                _unitOfWork.UniversityDocumentRepository.AddRange(UniversityDocuments);
+                _unitOfWork.UniversityDocumentRepository.SaveChanges();
+            }
+            return UniversityDocuments;
+
+
+        }
         public List<UniversityFee> GetUniversityFee()
         {
             var UniversityFees = _context.UniversityFee.Where(x => x.UId == 4).ToList();

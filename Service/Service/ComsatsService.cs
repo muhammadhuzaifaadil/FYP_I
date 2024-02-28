@@ -167,7 +167,37 @@ namespace Service.Service
 
         public List<UniversityDocuments> GetUniversityDocuments()
         {
-            throw new NotImplementedException();
+           var UniversityDocuments = _context.UniversityDocument.Where(x=>x.UId == 2).ToList();
+            if(UniversityDocuments.Count == 0)
+            {
+                var web = new HtmlWeb();
+                var htmlDoc = web.Load("https://ww2.comsats.edu.pk/ms_wah/AdmissionEligibilityBSAF.aspx");
+                var nodeElement = htmlDoc.DocumentNode.SelectSingleNode("//div[@class='col-lg-9']");
+                if(nodeElement!= null)
+                {
+                    var ulElement = nodeElement.SelectSingleNode(".//ul");
+                    if(ulElement!= null)
+                    {
+                        var liElements = ulElement.SelectNodes(".//li");
+                        if (liElements != null)
+                        {
+                            foreach(var liElement in liElements)
+                            {
+                                var liElementText = liElement.InnerText.Trim();
+                                var UniversityDocument = new UniversityDocuments
+                                {
+                                    DocumentRequirement = liElementText,
+                                    UId = 2,
+                                };
+                                UniversityDocuments.Add(UniversityDocument);
+                            }
+                        }
+                    }
+                }
+                _unitOfWork.UniversityDocumentRepository.AddRange(UniversityDocuments);
+                _unitOfWork.UniversityDocumentRepository.SaveChanges();
+            }
+            return UniversityDocuments;
         }
 
         public List<UniversityFee> GetUniversityFee()

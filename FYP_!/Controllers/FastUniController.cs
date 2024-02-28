@@ -4,7 +4,7 @@ using Service.IService;
 
 namespace FYP__.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Fast")]
     [ApiController]
     public class FastUniController : ControllerBase
     {
@@ -35,7 +35,7 @@ namespace FYP__.Controllers
         [HttpGet("FastDocuments")]
         public IActionResult GetUniversityDocuments()
         {
-            return Ok(_service.GetUniversityDocuments);
+            return Ok(_service.GetUniversityDocuments());
         }
     }
 }

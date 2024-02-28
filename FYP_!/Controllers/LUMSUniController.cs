@@ -4,7 +4,7 @@ using Service.IService;
 
 namespace FYP__.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/LUMS")]
     [ApiController]
     public class LUMSUniController : ControllerBase
     {
@@ -34,7 +34,7 @@ namespace FYP__.Controllers
         [HttpGet("LUMSDocuments")]
         public IActionResult GetUniversityDocuments()
         {
-            return Ok(_service.GetUniversityDocuments);
+            return Ok(_service.GetUniversityDocuments());
         }
     }
 }

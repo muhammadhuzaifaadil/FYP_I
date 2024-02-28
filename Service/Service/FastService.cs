@@ -222,11 +222,20 @@ namespace Service.Service
         public List<UniversityDocuments> GetUniversityDocuments()
         {
             var UniversityDocuments = _context.UniversityDocument.Where(x=>x.UId == 1).ToList();
-            //if (UniversityDocuments.Count == 0)
-            //{
-
-            //}
+            if (UniversityDocuments.Count == 0)
+            {
+                var UniversityDocument = new UniversityDocuments
+                {
+                    DocumentRequirement = "No data available",
+                    UId = 1,
+                };
+                UniversityDocuments.Add(UniversityDocument);
+                _unitOfWork.UniversityDocumentRepository.AddRange(UniversityDocuments);
+                _unitOfWork.UniversityDocumentRepository.SaveChanges();
+            }
             return UniversityDocuments;
         }
+
+        
     }
 }

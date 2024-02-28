@@ -4,7 +4,7 @@ using Service.IService;
 
 namespace FYP__.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Bahria")]
     [ApiController]
     public class BahriaUniController : ControllerBase
     {
@@ -34,7 +34,7 @@ namespace FYP__.Controllers
         [HttpGet("BahriaDocuments")]
         public IActionResult GetUniversityDocuments()
         {
-            return Ok(_service.GetUniversityDocuments);
+            return Ok(_service.GetUniversityDocuments());
         }
     }
 }
