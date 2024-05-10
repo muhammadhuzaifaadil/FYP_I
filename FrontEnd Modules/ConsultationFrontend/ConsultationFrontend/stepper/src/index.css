@@ -1,0 +1,275 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.stepper-main {
+  height: 100vh;
+  background-color: #1b1b1b;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.stepper-heading {
+  background: #000000;
+  margin: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 22px;
+  font-weight: 400;
+  position: sticky;
+  width: 100%;
+  transition: .3s;
+
+}
+
+.sh-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.sh-visible {
+  visibility: visible;
+  opacity: 1;
+  animation: .3s linear sticky;
+}
+
+@keyframes sticky {
+  0% {
+    transform: translateY(-50px)
+  }
+
+  100% {
+    transform: translateY(0)
+  }
+}
+
+.stepper-main-inner {
+  height: calc(100% - 60px);
+  overflow: overlay;
+}
+
+.stepper-main .MuiStepper-vertical {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.stepper-main .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+  color: #ffffff !important;
+  border-color: transparent;
+}
+
+.stepper-main .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active .css-117w1su-MuiStepIcon-text {
+  fill: #000000 !important;
+}
+
+.stepper-main .css-117w1su-MuiStepIcon-text {
+  fill: #ffffff !important;
+}
+
+.stepper-main .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root {
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.step-main-question {
+  color: #a3a3a3;
+  text-align: start;
+}
+
+.step-question {
+  color: #ffffff;
+  text-align: start;
+}
+
+.step-questio0n {
+  color: #ffffff;
+  text-align: start;
+  font-size: 28px !important;
+  font-weight: 200 !important;
+  line-height: 1 !important;
+  margin: 10px 0 !important;
+}
+
+.step-question-option .sq-option-number {
+  margin-right: 10px;
+  border: 1px solid #ffffff;
+  padding: 1px 9px;
+  border-radius: 5px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.step-question-option .css-1mb437k-MuiButtonBase-root-MuiButton-root {
+  min-width: 100% !important;
+  justify-content: start;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.24);
+  color: white;
+  padding: 13px;
+}
+
+.step-question-option .css-1f5ro5o-MuiButtonBase-root-MuiButton-root {
+  min-width: 100% !important;
+  justify-content: start;
+  border-radius: 5px;
+  color: white;
+  padding: 13px;
+  background-color: #86429a;
+  border-color: #86429a;
+}
+
+.stepper-main .css-1mb437k-MuiButtonBase-root-MuiButton-root:hover {
+  border-color: #86429a !important;
+}
+
+.stepper-main .css-1mb437k-MuiButtonBase-root-MuiButton-root:hover .sq-option-number {
+  border-color: #86429a;
+}
+
+.step-question-option .sq-question-button {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.step-question-option .sq-question-button .css-1f5ro5o-MuiButtonBase-root-MuiButton-root {
+  width: max-content !important;
+  min-width: max-content !important;
+  background-color: #86429a;
+  border-color: #86429a;
+}
+
+.stepper-main .css-18st3fs-MuiButtonBase-root-MuiButton-root {
+  color: #ffffff !important;
+}
+
+.stepper-main .css-1hv8oq8-MuiStepLabel-label.Mui-active {
+  color: #ffffff !important;
+}
+
+.stepper-main .css-1vyamtt-MuiStepLabel-labelContainer {
+  color: #ffffff !important;
+}
+
+.skip-btn .css-18st3fs-MuiButtonBase-root-MuiButton-root {
+  color: #a3a3a3 !important;
+  text-decoration: underline;
+}
+
+.stepper-heading {
+  color: #ffffff;
+}
+
+.stepper-main .css-1hv8oq8-MuiStepLabel-label.Mui-completed {
+  color: #ffffff !important;
+}
+
+.stepper-main .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
+  color: #86429a !important;
+  border-color: #86429a;
+}
+
+.cust-progress-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}
+
+.cust-progress-bar .css-eglki6-MuiLinearProgress-root {
+  background-color: #ffffff !important;
+  height: 6px !important;
+}
+
+.cust-progress-bar .css-5xe99f-MuiLinearProgress-bar1 {
+  background-color: #86429a !important;
+}
+
+.stepper-main .css-9l5vo-MuiCollapse-wrapperInner {
+  margin-left: 25px;
+}
+
+.css-1f5ro5o-MuiButtonBase-root-MuiButton-root:hover {
+  background-color: #86429a !important;
+}
+
+.finish-content .css-1di5t78-MuiPaper-root {
+  border-radius: 12px;
+  padding: 15px !important;
+}
+
+.finish-content .css-ahj2mt-MuiTypography-root {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+  .stepper-main .MuiStepper-vertical {
+    width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .stepper-main .css-14yr603-MuiStepContent-root {
+    padding-left: 0 !important;
+  }
+
+  .step-main-question {
+    font-size: 1.5rem !important;
+  }
+
+  .step-question {
+    font-size: 1rem !important;
+  }
+
+  .step-question-option .sq-option-number {
+    padding: 0px 7px;
+  }
+
+  .skip-btn .css-18st3fs-MuiButtonBase-root-MuiButton-root {
+    font-size: 12px !important;
+  }
+
+  .step-question-option .sq-question-button .css-1f5ro5o-MuiButtonBase-root-MuiButton-root {
+    padding: 10px !important;
+    font-size: 12px !important;
+  }
+
+  .stepper-main .css-18st3fs-MuiButtonBase-root-MuiButton-root {
+    font-size: 12px !important;
+  }
+
+  .step-question-option .css-1mb437k-MuiButtonBase-root-MuiButton-root {
+    padding: 10px !important;
+    font-size: 12px !important;
+  }
+
+  .step-question-option .css-1f5ro5o-MuiButtonBase-root-MuiButton-root {
+    padding: 10px !important;
+    font-size: 12px !important;
+  }
+
+  .stepper-main .css-9l5vo-MuiCollapse-wrapperInner {
+    margin-top: 12px;
+  }
+  .finish-content .css-ahj2mt-MuiTypography-root {
+    font-size: 14px;
+  }
+}

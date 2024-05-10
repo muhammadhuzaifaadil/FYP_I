@@ -1,0 +1,171 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+@font-face {
+  font-family: 'Gothic'; /* Provide a name for your font family */
+  src: url('./COPRGTL.TTF') format('truetype'); /* Specify the path to your font file */
+}
+body{
+  background-image: linear-gradient(to left, #bccbde, #c2dde6, #e6e9f0);
+}
+.container
+{
+  display: flex;
+  /* position: relative; */
+}
+.sidebar {
+  width: 25%;
+  position: fixed;
+  height: 90%;
+  border-right: 2px solid #171616;
+  z-index: 3;
+  top: 2rem;
+  left: 1.5rem;
+  overflow-y: auto;
+  transition: width 0.5s; /* Add transition for smooth animation */
+}
+.sidebar-closed {
+  width: 0rem;
+  position: fixed;
+  height: 100vh;
+  border-right: 2px solid #171616;
+  z-index: 3;
+  top: 2rem;
+  left: 1.5rem;
+  overflow-y: hidden;
+  transition: 200ms ease;
+  /* Add any other styles you want for the closed sidebar */
+}
+.sidebar-closed div{
+  display: none;
+}
+
+.toggle-button {
+  /* Add styles for the button */
+  margin-top: 3px;
+  margin-right: 10px;
+  padding: 10px 10px;
+  background-color: #62b6ee;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 0rem;
+}
+.toggle-button:hover
+{
+  background-color: #2980b9;
+}
+
+.label-container {
+  display: inline-block;
+  width: 50%; /* Adjusted width for better alignment */
+  box-sizing: border-box;
+  padding: 5px;
+  vertical-align: middle; /* Aligns items vertically */
+}
+
+.label-container input {
+  cursor: pointer;
+  vertical-align: middle; /* Aligns the input with the label */
+  margin-right: 5px; /* Add a margin between the input and the label */
+}
+
+.label-container label {
+  font-weight: bold; /* Make the font weight bold */
+  font-size: 20px; /* Set the font size to your desired size */
+}
+
+
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 50rem;
+  margin-top: 30rem;
+  
+}
+
+table {
+  margin: 5rem auto;
+  border-radius: 2rem;
+  border: 1rem hidden #443C68;
+  border-collapse: collapse;
+  box-shadow: 0 0 0 1px black;
+  overflow: hidden;
+  max-width: 100rem;
+  width: 55rem;
+  margin-top: 10rem;
+  position: fixed; /* Keep the table fixed */
+  top: 0; /* Align to the top */
+  left: 60%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+}
+
+thead {
+  font-size: 1.8rem;
+  background-color: #443C68;
+  color: #fff;
+}
+
+tbody {
+  height: auto;
+  overflow-y: auto; /* Enable vertical scrolling for tbody */
+  display: block; /* Enable block layout for tbody */
+}
+
+.table-row {
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Gothic';
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.td {
+  padding: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  border: 1px solid black;
+  height: 3rem;
+  width: 10rem;
+}
+
+
+
+#UniNameHeading {
+  text-align: center;
+  
+}
+#uniNameTd
+{
+  width: 100%;
+}
+h3{
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Gothic';
+}
+h1{
+ 
+  margin-top: -52rem;
+  margin-left: -8rem;
+  font-size: 50px;
+  font-family: 'Gothic';
+}
+body::-webkit-scrollbar {
+  width: 1em;
+}
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
