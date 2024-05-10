@@ -15,5 +15,7 @@ namespace UnitOfWork
         IUniversityDepartmentRepository UniversityDepartmentRepository { get; }
         IUniversityDocumentRepository UniversityDocumentRepository { get; }
         IUniversityFeeRepository UniversityFeeRepository { get; }
+        IQuizQuestionRepository QuestionsRepository { get; }
+        IUserRepository UserRepository { get; }
     }
 }

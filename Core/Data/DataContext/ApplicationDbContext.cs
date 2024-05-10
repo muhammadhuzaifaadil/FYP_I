@@ -20,6 +20,9 @@ namespace Core.Data.DataContext
 
         public DbSet<UniversityFee> UniversityFee { get; set; }
         public DbSet<UniversityCalendar> UniversityCalendar { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<ConsultationQuestionModel> ConsultationQuestions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -43,6 +46,7 @@ namespace Core.Data.DataContext
                 .HasOne(uc => uc.University)
                 .WithMany(u => u.UniversityCalendars)
                 .HasForeignKey(uc => uc.UId);
+           
         }
     }
 }

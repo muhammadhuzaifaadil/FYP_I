@@ -1,4 +1,5 @@
-﻿using Service.IService;
+﻿using Core.Data.Entities;
+using Service.IService;
 using Service.Service;
 using UnitOfWork;
 
@@ -15,16 +16,20 @@ namespace FYP__.Infrastructure
             services.AddScoped<ILUMSService, LUMSService>();
             services.AddScoped<IBahriaService, BahriaService>();
             services.AddScoped<IFilterService, FilterService>();
+            services.AddScoped<ConsultationService>();
+            services.AddSignalR();
+            services.AddSingleton<IDictionary<string, UserConnection>>(opt =>
+    new Dictionary<string, UserConnection>());
+
             //CORS POLICY TO ALLOW FETCHING WITH AXIOS IN REACT
-            services.AddCors(options =>
-            {
-                options.AddDefaultPolicy(builder =>
-                {
-                    builder.WithOrigins("http://localhost:3001")
-                           .AllowAnyHeader()
-                           .AllowAnyMethod();
-                });
-            });
+            //services.AddCors(options =>
+            //{
+            //     options.SetIsOriginAllowed(origin => origin == "http://localhost:3000" || origin == "http://localhost:7100")
+            //        .AllowCredentials()                                          // Allow credentials (cookies, authorization headers)
+            //        .AllowAnyMethod()                                            // Allow any HTTP method
+            //        .AllowAnyHeader();
+            
+            //});
         }
     }
 }

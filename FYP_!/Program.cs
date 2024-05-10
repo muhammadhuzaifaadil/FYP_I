@@ -1,4 +1,5 @@
 using Core.Data.DataContext;
+using Core.Hubs;
 using FYP__.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,16 +24,22 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 // Use CORS middleware with specific settings
 app.UseCors(builder =>
 {
-    builder.AllowAnyOrigin()
+    builder.WithOrigins("http://localhost:3000", "http://localhost:7100")
+    .AllowCredentials()
+    
            .AllowAnyHeader()
            .AllowAnyMethod();
 });
+app.UseRouting();
+app.UseCors();
+app.UseAuthentication();
 app.UseAuthorization();
-
+app.MapGet("/", () => "Hello World!");
+app.MapHub<ChatHub>("/chat");
 app.MapControllers();
 
 app.Run();
