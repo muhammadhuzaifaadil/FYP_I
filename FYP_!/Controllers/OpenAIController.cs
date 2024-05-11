@@ -9,6 +9,7 @@ namespace FYP__.Controllers
     [ApiController]
     public class OpenAIController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
