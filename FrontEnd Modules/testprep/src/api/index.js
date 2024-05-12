@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const BASE_URL = 'https://localhost:7206';
+export const BASE_URL = 'https://localhost:7100';
 
 export const ENDPOINTS = {
     question:'question',

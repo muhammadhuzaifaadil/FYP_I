@@ -28,7 +28,7 @@ if (app.Environment.IsDevelopment())
 // Use CORS middleware with specific settings
 app.UseCors(builder =>
 {
-    builder.WithOrigins("http://localhost:3000", "http://localhost:7100")
+    builder.WithOrigins("http://localhost:3000", "http://localhost:7100", "http://localhost:5173")
     .AllowCredentials()
     
            .AllowAnyHeader()

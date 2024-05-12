@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Box, Container, Typography, Button, LinearProgress, Stepper, Step, StepLabel, StepContent } from '@mui/material';
 import ConsultationResponse from './ConsultationResponse';
 
-const API_URL = 'https://localhost:7181/GetQuestion';
-const POST_URL = 'https://localhost:7181/GetConsultation';
+const API_URL = 'https://localhost:7100/api/Consultation/GetQuestion';
+const POST_URL = 'https://localhost:7100/api/Consultation/GetConsultation';
 
 const VerticalLinearStepper = () => {
     const [steps, setSteps] = useState([]);
