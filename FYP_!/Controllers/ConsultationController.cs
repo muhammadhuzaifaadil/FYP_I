@@ -15,7 +15,7 @@ namespace FYP__.Controllers
         {
             _service = service;
         }
-        // GET: ConsultationController
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
